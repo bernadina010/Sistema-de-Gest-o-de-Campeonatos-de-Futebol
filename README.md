@@ -51,6 +51,7 @@ O sistema automatiza processos importantes de uma competição, como a geração
 * Classe Campeonato
   
 Representa o campeonato em si.
+
 Atributos:
 
     nome
@@ -59,6 +60,7 @@ Atributos:
     listaEquipas
     listaJogos
     tabelaClassificacao
+    
 Responsabilidades:
     
     Gerar calendário de jogos
@@ -68,6 +70,7 @@ Responsabilidades:
 * Classe Equipa
   
 Representa cada equipa participante.
+
 Atributos:
 
     idEquipa
@@ -92,6 +95,7 @@ Responsabilidades:
 * Classe Jogador
   
 Representa os jogadores de cada equipa.
+
 Atributos:
 
     idJogador
@@ -110,6 +114,7 @@ Responsabilidades:
 * Classe Jogo
   
 Representa uma partida entre duas equipas.
+
 Atributos:
 
     idJogo
@@ -130,6 +135,7 @@ Responsabilidades:
 *  Classe TabelaClassificacao
   
 Responsável pela classificação do campeonato.
+
 Atributos:
 
     listaEquipas
