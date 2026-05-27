@@ -21,7 +21,19 @@ O principal objectivo deste projecto é desenvolver uma solução prática, orga
 O sistema automatiza processos importantes de uma competição, como a geração automática da tabela de jogos, a visualização da tabela classificativa e a apresentação de detalhes sobre a formação das equipas. Com isso, busca-se reduzir erros manuais, melhorar a organização das informações e facilitar o acompanhamento do campeonato por parte dos utilizadores.
 
 # Menu Principal:
-
+                1 - Criar Campeonato
+                2 - Escolher Tipo de Campeonato
+                3 - Cadastrar Equipas
+                4 - Gerar Tabela de Jogos
+                5 - Visualizar jogos
+                6 - Simular Jogo
+                7 - Simular Rodada
+                8 - Ver Tabela Classificativa
+                9 - Ver detalhes de uma equipa
+                10 - Gurdar Dados
+                11 - Carregar Dados
+                0 - Sair
+                Escolha uma opção: 
 # Principais Entidades:
 
 * Classe Campeonato
