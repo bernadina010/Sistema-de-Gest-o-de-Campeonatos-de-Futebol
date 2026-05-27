@@ -15,12 +15,23 @@ Membros do Grupo:
 O sistema de gestão de campeonatos de futebol foi criado para auxiliar na organização e administração de competições desportivas, permitindo um controlo mais eficiente das informações relacionadas aos campeonatos e às equipas participantes.
 
 # Objectivo:
-O principal objectivo deste projecto é desenvolver uma solução prática, organizada e funcional para a gestão de campeonatos de futebol. Entre os objectivos específicos, destacam-se: gerar automaticamente os jogos entre as equipas participantes, permitir a consulta da classificação das equipas ao longo da competição e disponibilizar informações detalhadas sobre a composição e formação de cada equipa. Além disso, o projecto visa aplicar os conhecimentos adquiridos na disciplina de Programação 2, utilizando conceitos de programação, estruturas de dados e organização de sistemas.
+O principal objectivo deste projecto é desenvolver uma solução prática, organizada e funcional para a gestão de campeonatos de futebol. Entre os objectivos específicos, destacam-se: gerar automaticamente os jogos entre as equipas participantes, permitir a consulta da classificação das equipas ao longo da competição e disponibilizar informações detalhadas sobre a composição e formação de cada equipa. Além disso, o projecto visa aplicar os conhecimentos adquiridos na disciplina de Programação 2, utilizando conceitos específicos dados na disciplina de Programação 2, nomeadamente:
+
+        Estruturas de Decisão e Repetição
+        Registros
+        Funções
+        Arquivos
+
 
 # Modo de Funcionamento:
 O sistema automatiza processos importantes de uma competição, como a geração automática da tabela de jogos, a visualização da tabela classificativa e a apresentação de detalhes sobre a formação das equipas. Com isso, busca-se reduzir erros manuais, melhorar a organização das informações e facilitar o acompanhamento do campeonato por parte dos utilizadores.
 
 # Menu Principal:
+
+           ==============================================
+            SISTEMA DE GESTAO DE CAMPEONATOS DE FUTEBOL");
+          ==============================================
+          
                 1 - Criar Campeonato
                 2 - Escolher Tipo de Campeonato
                 3 - Cadastrar Equipas
@@ -34,6 +45,7 @@ O sistema automatiza processos importantes de uma competição, como a geração
                 11 - Carregar Dados
                 0 - Sair
                 Escolha uma opção: 
+                
 # Principais Entidades:
 
 * Classe Campeonato
