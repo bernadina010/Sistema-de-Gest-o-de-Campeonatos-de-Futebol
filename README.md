@@ -29,7 +29,7 @@ O sistema automatiza processos importantes de uma competição, como a geração
 # Menu Principal:
 
            ==============================================
-            SISTEMA DE GESTAO DE CAMPEONATOS DE FUTEBOL");
+            SISTEMA DE GESTAO DE CAMPEONATOS DE FUTEBOL
           ==============================================
           
                 1 - Criar Campeonato
