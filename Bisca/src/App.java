@@ -4,6 +4,7 @@ public class App {
     public static void main(String[] args) throws Exception {
       
         Scanner input = new Scanner (System.in);
+        Campeonato campeonato = new Campeonato();
 
         int op;
     
@@ -18,22 +19,97 @@ public class App {
 
             switch (op) {
                 case 1:
-                    
+
+                    input.nextLine();
+
+                    System.out.print("Nome do campeonato: ");
+                    String nome = input.nextLine();
+
+                    System.out.print("Ano: ");
+                    int ano = input.nextInt();
+
+                    campeonato.criar(nome, ano);
+
+                    System.out.println("Campeonato criado com sucesso!");
+
                     break;
+
                 case 2:
-                    
-                    break;
+
+                     input.nextLine();
+
+                     System.out.println("1 - Liga");
+                     System.out.println("2 - Eliminatória");
+
+                     int tipo = input.nextInt();
+
+                     if(tipo == 1)
+                     campeonato.definirTipo("Liga");
+
+                     else
+                     campeonato.definirTipo("Eliminatoria");
+
+                     System.out.println("Tipo definido.");
+
+                     break;
+
                 case 3:
                     
-                    break;
+
+                     input.nextLine();
+
+                     System.out.print("ID da equipa: ");
+                     int id = input.nextInt();
+
+                     input.nextLine();
+
+                     System.out.print("Nome da equipa: ");
+                     String nomeEquipa = input.nextLine();
+
+                     System.out.print("Treinador: ");
+                     String treinador = input.nextLine();
+
+                     Equipa equipa = new Equipa(id,nomeEquipa, treinador );
+
+                     campeonato.adicionarEquipa(equipa);
+
+                     System.out.println("Equipa cadastrada.");
+
+                     break;
+
                 case 4:
-                    
-                    break;
+                  
+                     campeonato.gerarJogos();
+                     System.out.println("Tabela de jogos gerada com sucesso.");
+
+                     break;
+
                 case 5:
+
+                     for(Jogo j : campeonato.getJogos()){
+                     System.out.println(j.getIdJogo() +  " - " + j);
                     
-                    break;
+                     }   
+
+                     break;
+
                 case 6:
-                    
+                     
+                     System.out.print("Digite o ID do jogo: " );
+                     int idJogo = input.nextInt();
+
+                     for(Jogo j : campeonato.getJogos()){
+
+                            if(j.getIdJogo() == idJogo){
+                               
+                             j.simular();
+
+                             System.out.println( "Resultado:" );
+
+                             System.out.println(j);
+                          }
+                     }
+
                     break;
                 case 7:
                     
@@ -59,7 +135,9 @@ public class App {
                     break;
             }
         }while(op != 0);
+        
+        input.close();
     }
-
+     
    
 }
