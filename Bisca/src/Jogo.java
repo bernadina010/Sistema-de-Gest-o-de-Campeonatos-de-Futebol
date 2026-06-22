@@ -1,75 +1,66 @@
 public class Jogo {
 
-    private int idJogo;
-
-    private Equipa casa;
-    private Equipa visitante;
+    private Equipa equipaCasa;
+    private Equipa equipaVisitante;
 
     private int golosCasa;
     private int golosVisitante;
 
     private boolean realizado;
 
-    public Jogo(int idJogo, Equipa casa, Equipa visitante) {
+    public Jogo(Equipa equipaCasa, Equipa equipaVisitante) {
 
-        this.idJogo = idJogo;
-        this.casa = casa;
-        this.visitante = visitante;
-
-        realizado = false;
+        this.equipaCasa = equipaCasa;
+        this.equipaVisitante = equipaVisitante;
+        this.realizado = false;
     }
 
-    public int getIdJogo() {
-        return idJogo;
-    }
+    public void registrarResultado(int golosCasa,
+                                   int golosVisitante) {
 
-    public Equipa getCasa() {
-        return casa;
-    }
+        this.golosCasa = golosCasa;
+        this.golosVisitante = golosVisitante;
 
-    public Equipa getVisitante() {
-        return visitante;
-    }
+        if (golosCasa > golosVisitante) {
 
-    public boolean isRealizado() {
-        return realizado;
-    }
+            equipaCasa.registrarVitoria(golosCasa, golosVisitante);
+            equipaVisitante.registrarDerrota(golosVisitante, golosCasa);
 
-    public void simular() {
+        } else if (golosCasa < golosVisitante) {
 
-        golosCasa = (int)(Math.random()*6);
-        golosVisitante = (int)(Math.random()*6);
+            equipaVisitante.registrarVitoria(golosVisitante, golosCasa);
+            equipaCasa.registrarDerrota(golosCasa, golosVisitante);
+
+        } else {
+
+            equipaCasa.registrarEmpate(golosCasa, golosVisitante);
+            equipaVisitante.registrarEmpate(golosVisitante, golosCasa);
+        }
 
         realizado = true;
+    }
 
-        if(golosCasa > golosVisitante)
-            casa.adicionarVitoria();
+    public Equipa getEquipaCasa() {
+        return equipaCasa;
+    }
 
-        else if(golosCasa < golosVisitante)
-            visitante.adicionarVitoria();
-
-        else{
-            casa.adicionarEmpate();
-            visitante.adicionarEmpate();
-        }
+    public Equipa getEquipaVisitante() {
+        return equipaVisitante;
     }
 
     @Override
     public String toString() {
 
-        if(realizado){
+        if(realizado) {
 
-            return casa.getNome() +
-                    " " +
-                    golosCasa +
-                    " x " +
-                    golosVisitante +
-                    " " +
-                    visitante.getNome();
+            return equipaCasa.getNomeEquipa() +
+                    " " + golosCasa +
+                    " x " + golosVisitante +
+                    " " + equipaVisitante.getNomeEquipa();
         }
 
-        return casa.getNome() +
+        return equipaCasa.getNomeEquipa() +
                 " vs " +
-                visitante.getNome();
+                equipaVisitante.getNomeEquipa();
     }
 }

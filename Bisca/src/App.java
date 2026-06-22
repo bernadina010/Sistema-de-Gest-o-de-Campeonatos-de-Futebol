@@ -1,143 +1,269 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-      
-        Scanner input = new Scanner (System.in);
-        Campeonato campeonato = new Campeonato();
 
-        int op;
-    
-        do{
-            System.out.println("==============================================");
-            System.out.println("SISTEMA DE GESTAO DE CAMPEONATOS DE FUTEBOL");
-            System.out.println("==============================================");
+    public static void main(String[] args) {
 
-            System.out.println("1 - Criar Campeonato\n2 - Escolher Tipo de Campeonato\n3 - Cadastrar Equipas\n4 - Gerar Tabela de Jogos\n5 - Visualizar jogos\n6 - Simular Jogo\n7 - Simular Rodada\n8 - Ver Tabela Classificativa\n9 - Ver detalhes de uma equipa\n10 - Gurdar Dados\n11 - Carregar Dados\n0 - Sair");
-            System.out.println("\nEscolha uma opçãO: ");
-            op = input.nextInt();
+        Scanner input = new Scanner(System.in);
 
-            switch (op) {
+        ArrayList<Campeonato> campeonatos = new ArrayList<>();
+
+        int opcao;
+
+        do {
+
+            System.out.println("\n==============================");
+            System.out.println(" SISTEMA DE CAMPEONATO");
+            System.out.println("==============================");
+
+            System.out.println("1. Criar Campeonato");
+            System.out.println("2. Cadastrar Equipa");
+            System.out.println("3. Gerar Tabela de Jogos");
+            System.out.println("4. Simular Jogo");
+            System.out.println("5. Tabela Classificativa");
+            System.out.println("6. Ver Detalhes da Equipa");
+            System.out.println("7. Guardar Dados");
+            System.out.println("8. Carregar Dados");
+            System.out.println("0. Sair");
+
+            System.out.print("\nEscolha uma opção: ");
+            opcao = input.nextInt();
+            input.nextLine();
+
+            switch (opcao) {
+
+                // =========================
+                // 1. CRIAR CAMPEONATO
+                // =========================
                 case 1:
 
-                    input.nextLine();
-
                     System.out.print("Nome do campeonato: ");
-                    String nome = input.nextLine();
+                    String nomeCamp = input.nextLine();
 
                     System.out.print("Ano: ");
                     int ano = input.nextInt();
+                    input.nextLine();
 
-                    campeonato.criar(nome, ano);
+                    campeonatos.add(new Campeonato(nomeCamp, ano));
 
                     System.out.println("Campeonato criado com sucesso!");
-
                     break;
 
+                // =========================
+                // 2. CADASTRAR EQUIPA
+                // =========================
                 case 2:
 
-                     input.nextLine();
+                    if (campeonatos.isEmpty()) {
+                        System.out.println("Crie primeiro um campeonato.");
+                        break;
+                    }
 
-                     System.out.println("1 - Liga");
-                     System.out.println("2 - Eliminatória");
+                    Campeonato camp = campeonatos.get(0);
 
-                     int tipo = input.nextInt();
+                    System.out.println("\n1 - Manual");
+                    System.out.println("2 - Ficheiro");
+                    System.out.print("Modo: ");
+                    int modo = input.nextInt();
+                    input.nextLine();
 
-                     if(tipo == 1)
-                     campeonato.definirTipo("Liga");
+                    if (modo == 1) {
 
-                     else
-                     campeonato.definirTipo("Eliminatoria");
+                        // =========================
+                        // MANUAL
+                        // =========================
 
-                     System.out.println("Tipo definido.");
+                        System.out.print("ID Equipa: ");
+                        int idEq = input.nextInt();
+                        input.nextLine();
 
-                     break;
+                        System.out.print("Nome Equipa: ");
+                        String nomeEq = input.nextLine();
 
+                        System.out.print("ID Treinador: ");
+                        int idT = input.nextInt();
+                        input.nextLine();
+
+                        System.out.print("Nome Treinador: ");
+                        String nomeT = input.nextLine();
+
+                        System.out.print("Idade: ");
+                        int idadeT = input.nextInt();
+                        input.nextLine();
+
+                        System.out.print("Nacionalidade: ");
+                        String nac = input.nextLine();
+
+                        Treinador treinador =
+                                new Treinador(idT, nomeT, idadeT, nac);
+
+                        Equipa equipa =
+                                new Equipa(idEq, nomeEq, treinador);
+
+                        int count = 0;
+
+                        while (count < 24) {
+
+                            System.out.print("Adicionar jogador? (s/n): ");
+                            String resp = input.nextLine();
+
+                            if (!resp.equalsIgnoreCase("s")) break;
+
+                            System.out.print("ID Jogador: ");
+                            int idJ = input.nextInt();
+                            input.nextLine();
+
+                            System.out.print("Nome: ");
+                            String nomeJ = input.nextLine();
+
+                            System.out.print("Numero: ");
+                            int num = input.nextInt();
+                            input.nextLine();
+
+                            System.out.print("Posição: ");
+                            String pos = input.nextLine();
+
+                            equipa.adicionarJogador(
+                                    new Jogador(idJ, nomeJ, num, pos)
+                            );
+
+                            count++;
+                        }
+
+                        camp.adicionarEquipa(equipa);
+
+                        System.out.println("Equipa criada!");
+
+                    } else if (modo == 2) {
+
+                        // =========================
+                        // FICHEIRO (BASE)
+                        // =========================
+
+                        System.out.print("Nome ficheiro: ");
+                        String file = input.nextLine();
+
+                        System.out.println(
+                                "Funcionalidade de ficheiro ainda não implementada."
+                        );
+                    }
+
+                    break;
+
+                // =========================
+                // 3. GERAR CALENDÁRIO
+                // =========================
                 case 3:
-                    
 
-                     input.nextLine();
+                    if (!campeonatos.isEmpty()) {
+                        campeonatos.get(0).gerarCalendarioJogos();
+                        System.out.println("Calendário gerado.");
+                    }
 
-                     System.out.print("ID da equipa: ");
-                     int id = input.nextInt();
+                    break;
 
-                     input.nextLine();
-
-                     System.out.print("Nome da equipa: ");
-                     String nomeEquipa = input.nextLine();
-
-                     System.out.print("Treinador: ");
-                     String treinador = input.nextLine();
-
-                     Equipa equipa = new Equipa(id,nomeEquipa, treinador );
-
-                     campeonato.adicionarEquipa(equipa);
-
-                     System.out.println("Equipa cadastrada.");
-
-                     break;
-
+                // =========================
+                // 4. SIMULAR JOGO
+                // =========================
                 case 4:
-                  
-                     campeonato.gerarJogos();
-                     System.out.println("Tabela de jogos gerada com sucesso.");
 
-                     break;
+                    if (campeonatos.isEmpty()) break;
 
+                    Campeonato c4 = campeonatos.get(0);
+
+                    if (c4.getListaJogos().isEmpty()) {
+                        System.out.println("Sem jogos.");
+                        break;
+                    }
+
+                    for (int i = 0; i < c4.getListaJogos().size(); i++) {
+                        System.out.println((i + 1) + " - " +
+                                c4.getListaJogos().get(i));
+                    }
+
+                    System.out.print("Escolha jogo: ");
+                    int j = input.nextInt() - 1;
+
+                    System.out.print("Golos casa: ");
+                    int gc = input.nextInt();
+
+                    System.out.print("Golos fora: ");
+                    int gf = input.nextInt();
+
+                    c4.getListaJogos()
+                            .get(j)
+                            .registrarResultado(gc, gf);
+
+                    System.out.println("Jogo simulado.");
+                    break;
+
+                // =========================
+                // 5. CLASSIFICAÇÃO
+                // =========================
                 case 5:
 
-                     for(Jogo j : campeonato.getJogos()){
-                     System.out.println(j.getIdJogo() +  " - " + j);
-                    
-                     }   
+                    if (!campeonatos.isEmpty()) {
 
-                     break;
+                        Campeonato c5 = campeonatos.get(0);
 
+                        System.out.println("\nCLASSIFICAÇÃO");
+
+                        for (Equipa e : c5.getListaEquipas()) {
+                            System.out.println(e);
+                        }
+                    }
+
+                    break;
+
+                // =========================
+                // 6. DETALHES EQUIPA
+                // =========================
                 case 6:
-                     
-                     System.out.print("Digite o ID do jogo: " );
-                     int idJogo = input.nextInt();
 
-                     for(Jogo j : campeonato.getJogos()){
+                    if (!campeonatos.isEmpty()) {
 
-                            if(j.getIdJogo() == idJogo){
-                               
-                             j.simular();
+                        Campeonato c6 = campeonatos.get(0);
 
-                             System.out.println( "Resultado:" );
-
-                             System.out.println(j);
-                          }
-                     }
+                        for (Equipa e : c6.getListaEquipas()) {
+                            System.out.println(e);
+                            System.out.println("----------------");
+                        }
+                    }
 
                     break;
+
+                // =========================
+                // 7. GUARDAR DADOS
+                // =========================
                 case 7:
-                    
+
+                    System.out.println("Guardar dados (a implementar com ficheiros).");
                     break;
+
+                // =========================
+                // 8. CARREGAR DADOS
+                // =========================
                 case 8:
-                    
+
+                    System.out.println("Carregar dados (a implementar com ficheiros).");
                     break;
-                case 9:
-                    
-                    break;
-                case 10:
-                    
-                    break;
-                case 11:
-                    
-                    break;
+
+                // =========================
+                // 0. SAIR
+                // =========================
                 case 0:
-                    
+
+                    System.out.println("Sistema encerrado.");
                     break;
-            
+
                 default:
-                    System.out.println("OpçãO de menu invÁlida. Escolha um nÚmero entre 0 e 11 (inclusive)");
-                    break;
+
+                    System.out.println("Opção inválida.");
             }
-        }while(op != 0);
-        
+
+        } while (opcao != 0);
+
         input.close();
     }
-     
-   
 }
