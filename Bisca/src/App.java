@@ -34,7 +34,7 @@ public class App {
             System.out.println("7. Guardar Dados");
             System.out.println("8. Carregar Dados");
             System.out.println("9. Listar Jogos");
-            System.out.println("10. Listar Equipas");
+            System.out.println("10.Listar Equipas");
 
             System.out.println(AZUL + "----------------------------------------" + RESET);
             System.out.println("0. Sair");
