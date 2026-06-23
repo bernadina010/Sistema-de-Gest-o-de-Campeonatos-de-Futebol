@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-
+        FileSystemManager.inicializar();
         Scanner input = new Scanner(System.in);
 
         ArrayList<Campeonato> campeonatos = new ArrayList<>();
@@ -13,21 +13,34 @@ public class App {
 
         do {
 
-            System.out.println("\n==============================");
-            System.out.println(" SISTEMA DE CAMPEONATO");
-            System.out.println("==============================");
+                    // Cores ANSI
+            String AZUL = "\u001B[34m";
+            String RESET = "\u001B[0m";
+            String NEGRITO = "\u001B[1m";
+
+            System.out.println(AZUL + NEGRITO);
+            System.out.println("+========================================+");
+            System.out.println("|        SISTEMA DE CAMPEONATO           |");
+            System.out.println("+========================================+" + RESET);
+
+            System.out.println(AZUL + "----------------------------------------" + RESET);
 
             System.out.println("1. Criar Campeonato");
             System.out.println("2. Cadastrar Equipa");
             System.out.println("3. Gerar Tabela de Jogos");
             System.out.println("4. Simular Jogo");
-            System.out.println("5. Tabela Classificativa");
+            System.out.println("5. Ver Classificação");
             System.out.println("6. Ver Detalhes da Equipa");
             System.out.println("7. Guardar Dados");
             System.out.println("8. Carregar Dados");
+            System.out.println("9. Listar Jogos");
+            System.out.println("10. Listar Equipas");
+
+            System.out.println(AZUL + "----------------------------------------" + RESET);
             System.out.println("0. Sair");
 
-            System.out.print("\nEscolha uma opção: ");
+            System.out.println(AZUL + "========================================" + RESET);
+            System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
             input.nextLine();
 
