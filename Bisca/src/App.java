@@ -142,11 +142,9 @@ public class App {
                         // =========================
 
                         System.out.print("Nome ficheiro: ");
-                        String file = input.nextLine();
+                        //String file = input.nextLine();
 
-                        System.out.println(
-                                "Funcionalidade de ficheiro ainda não implementada."
-                        );
+                        System.out.println("Funcionalidade de ficheiro ainda não implementada.");
                     }
 
                     break;
@@ -238,7 +236,14 @@ public class App {
                 // =========================
                 case 7:
 
-                    System.out.println("Guardar dados (a implementar com ficheiros).");
+                    if(campeonatos.isEmpty()) 
+                    {
+                    System.out.println("Nenhum campeonato encontrado.");
+                    break;
+                    }
+
+                      FicheiroUtil.guardarTudo(campeonatos.get(0));
+
                     break;
 
                 // =========================
@@ -246,9 +251,17 @@ public class App {
                 // =========================
                 case 8:
 
-                    System.out.println("Carregar dados (a implementar com ficheiros).");
-                    break;
+                    Campeonato carregado = FicheiroUtil.carregarTudo();
 
+                    if (carregado != null) {
+
+                        campeonatos.clear();
+                        campeonatos.add(carregado);
+
+                        System.out.println(  "Campeonato carregado.");
+                    }
+
+                    break;
                 // =========================
                 // 0. SAIR
                 // =========================

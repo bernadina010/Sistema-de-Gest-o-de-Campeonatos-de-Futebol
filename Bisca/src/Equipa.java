@@ -145,6 +145,7 @@ public class Equipa {
         }
     }
 
+   
     @Override
     public String toString() {
 

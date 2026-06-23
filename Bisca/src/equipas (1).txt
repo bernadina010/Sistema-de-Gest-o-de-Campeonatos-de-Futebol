@@ -1,0 +1,50 @@
+EQUIPA
+1
+Petro de Luanda
+101
+Alexandre Santos
+50
+Portugal
+2
+10
+Manucho
+9
+Avancado
+11
+Depu
+7
+Avancado
+
+EQUIPA
+2
+1 de Agosto
+102
+Carlos Almeida
+48
+Angola
+2
+20
+Zito
+10
+Medio
+21
+Nelson
+11
+Avancado
+
+EQUIPA
+3
+Sagrada Esperanca
+103
+Pedro Costa
+45
+Angola
+2
+30
+Joao
+8
+Medio
+31
+Paulo
+9
+Avancado

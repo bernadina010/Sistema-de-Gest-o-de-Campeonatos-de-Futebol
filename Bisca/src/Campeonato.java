@@ -29,8 +29,14 @@ public class Campeonato {
         return ano;
     }
 
-    public int getQuantidadeEquipas() {
+    public int getQuantidadeEquipas() 
+    {
         return quantidadeEquipas;
+    }
+
+    public void setQuantidadeEquipas(int quantidadeEquipas) 
+    {
+    this.quantidadeEquipas = quantidadeEquipas;
     }
 
     public ArrayList<Equipa> getListaEquipas() {
@@ -59,7 +65,13 @@ public class Campeonato {
         listaEquipas.add(equipa);
         quantidadeEquipas++;
     }
+      
 
+    public void adicionarJogo(Jogo jogo) 
+    {
+    listaJogos.add(jogo);
+    }
+    
     // Organizar equipas
     public void organizarEquipas() {
         System.out.println("\n=== Equipas Participantes ===");
