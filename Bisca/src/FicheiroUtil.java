@@ -11,10 +11,7 @@ public class FicheiroUtil {
 
     public static void guardarCampeonato(Campeonato campeonato) {
 
-        try (PrintWriter pw =
-                     new PrintWriter(
-                             new FileWriter(
-                                     PASTA + "campeonato.txt"))) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(PASTA + "campeonato.txt"))) {
 
             pw.println(campeonato.getNome());
             pw.println(campeonato.getAno());
@@ -31,10 +28,8 @@ public class FicheiroUtil {
 
     public static void guardarEquipas(Campeonato campeonato) {
 
-        try (PrintWriter pw =
-                     new PrintWriter(
-                             new FileWriter(
-                                     PASTA + "equipas.txt"))) {
+        try (PrintWriter pw = new PrintWriter( new FileWriter( PASTA + "equipas.txt"))) 
+        {
 
             for (Equipa e : campeonato.getListaEquipas()) {
 
@@ -73,10 +68,8 @@ public class FicheiroUtil {
 
     public static void guardarJogos(Campeonato campeonato) {
 
-        try (PrintWriter pw =
-                     new PrintWriter(
-                             new FileWriter(
-                                     PASTA + "jogos.txt"))) {
+        try (PrintWriter pw = new PrintWriter( new FileWriter(PASTA + "jogos.txt"))) 
+        {
 
             for (Jogo jogo : campeonato.getListaJogos()) {
 
@@ -109,10 +102,8 @@ public class FicheiroUtil {
     public static void guardarClassificacao(
             Campeonato campeonato) {
 
-        try (PrintWriter pw =
-                     new PrintWriter(
-                             new FileWriter(
-                                     PASTA + "classificacao.txt"))) {
+        try (PrintWriter pw = new PrintWriter( new FileWriter(PASTA + "classificacao.txt")))
+         {
 
             for (Equipa e :
                     campeonato.getListaEquipas()) {
@@ -131,8 +122,7 @@ public class FicheiroUtil {
 
         } catch (IOException ex) {
 
-            System.out.println(
-                    "Erro ao guardar classificação.");
+            System.out.println("Erro ao guardar classificação.");
         }
     }
 

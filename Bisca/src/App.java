@@ -108,11 +108,9 @@ public class App {
                         System.out.print("Nacionalidade: ");
                         String nac = input.nextLine();
 
-                        Treinador treinador =
-                                new Treinador(idT, nomeT, idadeT, nac);
+                        Treinador treinador = new Treinador(idT, nomeT, idadeT, nac);
 
-                        Equipa equipa =
-                                new Equipa(idEq, nomeEq, treinador);
+                        Equipa equipa = new Equipa(idEq, nomeEq, treinador);
 
                         int count = 0;
 
@@ -155,9 +153,10 @@ public class App {
                         // =========================
 
                         System.out.print("Nome ficheiro: ");
-                        //String file = input.nextLine();
+                        String file = input.nextLine();
 
-                        System.out.println("Funcionalidade de ficheiro ainda não implementada.");
+                        //6
+                        // System.out.println("Funcionalidade de ficheiro ainda não implementada.");
                     }
 
                     break;
@@ -275,6 +274,23 @@ public class App {
                     }
 
                     break;
+
+                // =========================
+                // 9. Listar Jogos
+                // =========================
+                case 9:
+
+
+                break;
+                // =========================
+                // 10. Listar Equipas
+                // =========================
+                case 10:
+
+
+                break;
+
+
                 // =========================
                 // 0. SAIR
                 // =========================

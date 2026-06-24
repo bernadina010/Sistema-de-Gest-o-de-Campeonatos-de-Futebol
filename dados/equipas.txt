@@ -1,0 +1,16 @@
+EQUIPA
+1
+PSG
+1
+Luis Henriques
+40
+Espanhola
+0
+EQUIPA
+2
+Monaco
+2
+Simon
+25
+Angolana
+0
